@@ -12,17 +12,12 @@ export const MyPosts = (props: PostPageType) => {
 
     let postMessageRef = React.createRef<HTMLTextAreaElement>()
 
-    const [text, setText] = useState<string>('')
-    const error = text ? '' : 'error'
-
     const addPost = () => {
-        if (error) {
-            alert("Text required!")
-        }
-        else if (postMessageRef.current) {
+        if (postMessageRef.current) {
             props.addPostCallback(postMessageRef.current.value)
         }
     }
+
     return (
         <div>
             <div>
