@@ -1,0 +1,15 @@
+.header {
+    grid-area: h;
+    width: 1000px;
+    height: 60px;
+    margin-left: 10px;
+    margin-top: 10px;
+    background-color: rgb(7, 97, 97);
+
+}
+
+
+
+.title {
+    text-align: center;
+}
