@@ -7,10 +7,10 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { Header } from './Components/Header/Header';
 import { Navbar } from './Components/Navbar/Navbar';
 import { Dialogs } from './Components/Dialogs/Dialogs';
-import state, { addPost } from './redux/state';
+import state, { addPost, allTypes, updateNewPostText } from './redux/state';
 import { Profile } from './Components/Profile/Profile';
 
-const App = () => {
+const App = (props: allTypes) => {
 
   // let postMessageRef = React.createRef<HTMLDivElement>()
 
@@ -29,8 +29,9 @@ const App = () => {
           <Route path='/profile'
             render={() => <Profile
               posts={state.postPage.posts}
-              addPostCallback={addPost}
-            />} />
+              addPostCallback={props.addPost}
+              newPostText={props.postPage.newPostText}              
+              updateNewPostText={props.updateNewPostText} />} />
 
         </div>
       </div>

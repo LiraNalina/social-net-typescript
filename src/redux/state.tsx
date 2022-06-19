@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { renderTree } from "../render"
 
 export type PostType = {
@@ -20,6 +19,8 @@ export type MessageType = {
 export type PostPageType = {
     posts: PostType[]
     addPostCallback: (postMessage: string) => void
+    newPostText: string
+    updateNewPostText: (newText: string) => void
 }
 
 export type DialogsPageType = {
@@ -31,6 +32,8 @@ export type allTypes = {
     postPage: PostPageType
     dialogsPage: DialogsPageType
     addPost: (postMessage: string) => void
+    updateNewPostText: (newText: string) => void
+    newPostText: string
 }
 
 let state: allTypes = {
@@ -45,7 +48,9 @@ let state: allTypes = {
             { id: 7, post: "Friday maybe", likesCount: 8 }
         ],
 
-        addPostCallback: (postMessage: string) => { }
+        addPostCallback: (postMessage: string) => { },
+        newPostText: 'chonay',
+        updateNewPostText: (newText: string) => { }
     },
 
     dialogsPage: {
@@ -69,8 +74,9 @@ let state: allTypes = {
         ]
     },
 
-    addPost: (postMessage: string) => { }
-
+    addPost: (postMessage: string) => { },
+    updateNewPostText: (newText: string) => { },
+    newPostText: 'chonay'
 }
 
 export const addPost = (postMessage: string) => {
@@ -85,5 +91,12 @@ export const addPost = (postMessage: string) => {
     renderTree(state)
 }
 
+export let updateNewPostText = (newText: string) => {
+    state.postPage.newPostText = newText
+
+    renderTree(state)
+}
+
 
 export default state
+
