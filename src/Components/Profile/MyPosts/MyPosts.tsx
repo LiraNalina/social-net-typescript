@@ -22,7 +22,7 @@ export const MyPosts = (props: PostPageType) => {
 
     let onChangeNew = () => {
         let text = postMessageRef.current?.value
-        if (postMessageRef.current !== null) {
+        if (text !== undefined) {
 
             props.updateNewPostText(text)
         }
