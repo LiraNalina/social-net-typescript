@@ -18,7 +18,7 @@ export type MessageType = {
 
 export type PostPageType = {
     posts: PostType[]
-    addPostCallback: (postMessage: string) => void
+    addPostCallback: () => void
     newPostText: string
     updateNewPostText: (newText: string) => void
 }
@@ -31,7 +31,7 @@ export type DialogsPageType = {
 export type allTypes = {
     postPage: PostPageType
     dialogsPage: DialogsPageType
-    addPost: (postMessage: string) => void
+    addPost: () => void
     updateNewPostText: (newText: string) => void
     newPostText: string
 }
@@ -48,7 +48,7 @@ let state: allTypes = {
             { id: 7, post: "Friday maybe", likesCount: 8 }
         ],
 
-        addPostCallback: (postMessage: string) => { },
+        addPostCallback: () => { },
         newPostText: 'chonay',
         updateNewPostText: (newText: string) => { }
     },
@@ -74,19 +74,21 @@ let state: allTypes = {
         ]
     },
 
-    addPost: (postMessage: string) => { },
+    addPost: () => { },
     updateNewPostText: (newText: string) => { },
     newPostText: 'chonay'
 }
 
-export const addPost = (postMessage: string) => {
+export const addPost = () => {
 
     let newPost: PostType = {
         id: new Date().getTime(),
-        post: postMessage,
+        // post: postMessage,
+        post: state.postPage.newPostText,
         likesCount: 0,
     }
     state.postPage.posts.push(newPost)
+    state.postPage.newPostText = ''
 
     renderTree(state)
 }
