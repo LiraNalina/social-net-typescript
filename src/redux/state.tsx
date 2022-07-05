@@ -1,4 +1,12 @@
-import { renderTree } from "../render"
+// import { renderTree } from "../render"
+let renderTree = (state: allTypes) => {
+    console.log("State changed")
+
+}
+
+/*export const subscribe = (callback: () => void) => {
+renderTree = callback
+}*/
 
 export type PostType = {
     id: number
@@ -34,6 +42,7 @@ export type allTypes = {
     addPost: () => void
     updateNewPostText: (newText: string) => void
     newPostText: string
+
 }
 
 let state: allTypes = {
@@ -79,6 +88,8 @@ let state: allTypes = {
     newPostText: 'chonay'
 }
 
+// window.state = state
+
 export const addPost = () => {
 
     let newPost: PostType = {
@@ -93,12 +104,15 @@ export const addPost = () => {
     renderTree(state)
 }
 
-export let updateNewPostText = (newText: string) => {
+export const updateNewPostText = (newText: string) => {
     state.postPage.newPostText = newText
 
     renderTree(state)
 }
 
+export const subscribe = (observer: (state: allTypes) => void) => {
+renderTree = observer
+}
 
 export default state
 

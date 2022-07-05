@@ -1,4 +1,6 @@
-import React, { ChangeEvent } from 'react';
+import React from "react";
+
+/*import React, { ChangeEvent } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import { BrowserRouter } from 'react-router-dom';
@@ -20,4 +22,4 @@ export const renderTree = (state: allTypes) => {
 
         </BrowserRouter>, document.getElementById('root')
     );
-}
+}*/
